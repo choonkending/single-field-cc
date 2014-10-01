@@ -1,8 +1,17 @@
 // Payment Info Component
-// Author: Zachary Forrest, modified by Brad Frost
+// Author: Zachary Forrest, modified by Brad Frost and Choon Ken Ding
 // Requires: jQuery, Modernizer, jQuery.inputmask
 
-(function ($) {
+// Making it a UMD
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['jquery'], factory);
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+
+}(function ($) {
 
 	"use strict";
 
@@ -480,6 +489,6 @@
 		messageSuccess : "Hooray! You've successfully filled out your credit card information."
 	};
 
-}(jQuery));
+}));
 
 $(".credit-card-group").paymentInfo();
