@@ -5,7 +5,11 @@
 // Making it a UMD
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {
+		// AMD. register as an anonymous module
 		define(['jquery'], factory);
+	} else if (typeof exports === 'object') {
+		// Node/ CommonJS module
+		factory(require('jquery'));
 	} else {
 		// Browser globals
 		factory(jQuery);
